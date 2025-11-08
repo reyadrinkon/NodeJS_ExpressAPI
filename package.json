@@ -7,8 +7,6 @@
   "version": "1.0.0",
   "description": "Testing",
   "main": "index.js",
-
-  "devDependencies": {},
   "scripts": {
     "start": "nodemon index.js"
   },
