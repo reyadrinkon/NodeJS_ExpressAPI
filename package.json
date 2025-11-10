@@ -3,7 +3,8 @@
     "axios": "^1.13.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "ollama": "^0.6.2"
   },
   "name": "nodejs_expressapi",
   "version": "1.0.0",
