@@ -1,13 +1,35 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
+import axios from 'axios';
+
 const app = express();
-const PORT = 3000;
+const port = 3001;
+
+app.use(cors());
 app.use(bodyParser.json());
+
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
+  res.send('Hello from the server!');
 });
 
+app.post('/chat', async (req, res) => {
+  const userMessage = req.body.message;
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  try {
+    const response = await axios.post(
+      'http://localhost:11434/api/generate',
+      {
+        model: 'llama3',
+        prompt: userMessage
+      }
+    );
+    res.json({ response: response.data.response });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
