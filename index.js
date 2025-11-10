@@ -13,7 +13,9 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.send('Hello from the server!');
 });
-
+app.get('/chat', (req, res) => {
+  res.send('Chat endpoint is working!');
+})
 app.post('/chat', async (req, res) => {
   const userMessage = req.body.message;
 
