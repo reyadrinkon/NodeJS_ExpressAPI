@@ -1,13 +1,13 @@
 // index.js
 import express from 'express';
 import bodyParser from 'body-parser';
-import cors from 'cors';
-import axios from 'axios';
+// import cors from 'cors';
+// import axios from 'axios';
 
 const app = express();
 const port = 3001;
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
